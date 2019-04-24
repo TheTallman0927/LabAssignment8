@@ -1,0 +1,30 @@
+[
+    {
+        "id": 1,
+        "firstName": "James",
+        "lastName": "Delmare",
+        "eamil": "manofekaf6669@gmail.com",
+        "phone": "(559) 123-4567"
+    },
+    {
+        "id": 2,
+        "firstName": "Anthony",
+        "lastName": "Cain",
+        "eamil": "Creativeman@gmail.com",
+        "phone": "(559) 123-4867"
+    },
+    {
+        "id": 3,
+        "firstName": "Isaiah",
+        "lastName": "Christy",
+        "eamil": "memedaddy69@gmail.com",
+        "phone": "(559) 103-8867"
+    },
+    {
+        "id": 4,
+        "firstName": "Ben",
+        "lastName": "Griffian",
+        "eamil": "huuuuh@gmail.com",
+        "phone": "(559) 113-4568"
+    }
+]
