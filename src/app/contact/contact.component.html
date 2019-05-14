@@ -26,13 +26,13 @@
   
   <ul class="nav nav-action-container">
     <li class="nav-item">
-      <button type="button" class="btn btn-secondary contact-button">Load Contacts</button>
+      <button type="button" class="btn btn-secondary contact-button" (class)="loadContact()">Load Contacts</button>
     </li>
     <li class="nav-item">
       <button type="button" class="btn btn-secondary contact-button">Save Contacts</button>
     </li>
     <li class="nav-item">
-      <button type="button" class="btn btn-secondary contact-button">Remove Contacts</button>
+      <button type="button" class="btn btn-secondary contact-button" (class)="addContact()">Add Contacts</button>
     </li>
   </ul>
   
@@ -48,12 +48,12 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>James</td>
-          <td>Delmare</td>
-          <td>@mail</td>
-          <td>0000</td>
+        <tr *ngFor="let contact of contacts; let i = index">
+          <th scope="row">{{id}}</th>
+          <td scope="row">{{contacts.firstName}}</td>
+          <td>{{contacts.lastName}}</td>
+          <td>{{contacts.email}}</td>
+          <td>{{contacts.phone}}</td>
         </tr>
       </tbody>
     </table>

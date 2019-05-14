@@ -1,6 +1,5 @@
 
-
-class Contact {
+export class Contact {
 
     public id?: number;
     public firstName?: string;
@@ -9,7 +8,8 @@ class Contact {
     public phone?: string;
     public editing?: boolean;
 
-    constructor() {
+    constructor(contact: object) {
+        Object.assign(this, contact);
 
     }
 }
