@@ -13,11 +13,18 @@
       <li class="nav-item active">
         <a class="nav-link" href="#">Contacts <span class="sr-only">(current)</span></a>
       </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Hello {{currentUser.username}}</a>
+      </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" [(ngModel)]="contactParams"
-        name="search">
-      <button class="btn btn-outline-light my-2 my-sm-0" type="submit" (click)="searchContact(contactParams)">Search</button>
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"
+        [(ngModel)]="contactParams" name="search">
+      <div class="btn-group">
+        <button class="btn btn-outline-light my-2 my-sm-0" type="submit"
+          (click)="searchContact(contactParams)">Search</button>
+        <button class="btn btn-outline-light my-2 my-sm-0" type="submit" (click)="logout()">Logout</button>
+      </div>
     </form>
   </div>
 </nav>
@@ -27,13 +34,13 @@
     <button type="button" class="btn btn-secondary contact-button" (click)="loadContacts()">Load Contacts</button>
   </li>
   <li class="nav-item">
-    <button type="button" class="btn btn-secondary contact-button" (click)="saveItemsToLocalStorage(contacts)">Save All</button>
+    <button type="button" class="btn btn-secondary contact-button" (click)="saveItemsToLocalStorage(contacts)">Save
+      All</button>
   </li>
   <li class="nav-item">
     <button type="button" class="btn btn-secondary contact-button" (click)="addContact()">Add Contacts</button>
   </li>
 </ul>
-
 <div class="contact-grid">
   <table class="table">
     <thead class="thead-dark">
@@ -61,8 +68,8 @@
             aria-describedby="basic-addon1">
         </th>
         <td *ngIf="contact.editing">
-          <input [(ngModel)]="contact.firstName" type="text" class="form-control" placeholder="First Name" aria-label="ID"
-            aria-describedby="basic-addon1">
+          <input [(ngModel)]="contact.firstName" type="text" class="form-control" placeholder="First Name"
+            aria-label="ID" aria-describedby="basic-addon1">
         </td>
         <td *ngIf="contact.editing">
           <input [(ngModel)]="contact.lastName" type="text" class="form-control" placeholder="Last Name" aria-label="ID"
