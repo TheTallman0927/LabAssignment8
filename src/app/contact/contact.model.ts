@@ -1,4 +1,12 @@
 
+interface IContact {
+    id?: number;
+    firstName?: string;
+    lastName?: string;
+    email?: string;
+    phone?: string;
+    editing?: boolean;
+}
 export class Contact {
 
     public id?: number;
@@ -8,11 +16,12 @@ export class Contact {
     public phone?: string;
     public editing?: boolean;
 
-    constructor(contact: object) {
+    constructor(contact: IContact) {
+        contact.editing = this.setState(contact);
         Object.assign(this, contact);
 
     }
-    setState(contact: object) {
+    setState(contact: IContact) {
         if (contact == null || Object.keys(contact).length === 0) {
             return true;
         }

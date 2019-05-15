@@ -20,7 +20,8 @@ export class ContactComponent implements OnInit {
   LocalStorageService: LocalStorageService<Contact>;
   currentUser: IUser;
 
-  constructor(private http: Http,
+  constructor(
+    private http: Http,
     private activatedRoute: ActivatedRoute,
     private router: Router,
     private toastService: ToastService) {
@@ -30,7 +31,7 @@ export class ContactComponent implements OnInit {
   async ngOnInit() {
     const currentUser = this.LocalStorageService.getItemsFromLocalStorage('user');
     if (currentUser == null) {
-      this.router.navigate(['login']);
+      // this.router.navigate(['login']);
     }
     this.loadContacts();
     this.activatedRoute.params.subscribe((data: IUser) => {
@@ -112,9 +113,9 @@ export class ContactComponent implements OnInit {
     });
     return contacts;
   }
-  logout() {
+  Logout() {
     // clear localStorage
-    this.LocalStorageService.clearItemFromLocalStorage('user');
+    this.LocalStorageService.clearItemFromLocalStorage();
     // navigate to login page
     this.router.navigate(['']);
 
