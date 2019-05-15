@@ -14,7 +14,16 @@ export class ContactComponent implements OnInit {
   constructor(private http: Http) { }
 
   async ngOnInit() {
-    this.contacts = await this.LoadItemsFromFile();
+    this.loadContacts();
+  }
+  async loadContacts() {
+    const savedContacts = this.getItemsFromLocalStorage('contacts');
+    if (savedContacts && savedContacts.length > 0) {
+      this.contacts = savedContacts;
+    } else {
+      this.contacts = await this.LoadItemsFromFile();
+    }
+    this.sortById(this.contacts);
   }
   async LoadItemsFromFile() {
     const data = await this.http.get('assets/contacts.json').toPromise();
@@ -24,5 +33,43 @@ export class ContactComponent implements OnInit {
   addContact() {
     this.contacts.unshift(new Contact({}));
   }
+  deleteContact(index: number) {
+    this.contacts.splice(index, 1);
+    this.saveItemsToLocalStorage(this.contacts);
+  }
 
+  saveContact(contact: Contact) {
+    contact.editing = false;
+    this.saveItemsToLocalStorage(this.contacts);
+  }
+
+  saveItemsToLocalStorage(contacts: Array<Contact>) {
+    contacts = this.sortById(contacts);
+    const savedContacts = localStorage.setItem('contacts', JSON.stringify(contacts));
+    return savedContacts;
+  }
+
+  getItemsFromLocalStorage(key: string) {
+    const savedContacts = JSON.parse(localStorage.getItem(key));
+    return savedContacts;
+  }
+
+  searchContact(params: string) {
+    this.contacts = this.contacts.filter((item: Contact, ) => {
+      const fullName = item.firstName + ' ' + item.lastName;
+
+      if (params === fullName || params === item.firstName || params === item.lastName) {
+        return true;
+      } else {
+        return false;
+      }
+    });
+  }
+
+  sortById(contacts: Array<Contact>) {
+    contacts.sort((prevContact: Contact, pressContact: Contact) => {
+      return prevContact.id > pressContact.id ? 1 : -1;
+    });
+    return contacts;
+  }
 }

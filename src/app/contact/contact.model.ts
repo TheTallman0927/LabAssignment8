@@ -12,4 +12,17 @@ export class Contact {
         Object.assign(this, contact);
 
     }
+    setState(contact: object) {
+        if (contact == null || Object.keys(contact).length === 0) {
+            return true;
+        }
+        let editing = false;
+        Object.keys(contact).forEach((key) => {
+            console.log('from setState...', contact[key]);
+            if (contact[key] == null) {
+                editing = true;
+            }
+        });
+        return editing;
+    }
 }

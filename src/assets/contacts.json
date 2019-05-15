@@ -4,20 +4,23 @@
         "firstName": "James",
         "lastName": "Delmare",
         "eamil": "manofekaf6669@gmail.com",
-        "phone": "(559) 123-4567"
+        "phone": "(559) 123-4567",
+        "editing": false
     },
     {
         "id": 2,
         "firstName": "Anthony",
         "lastName": "Cain",
         "eamil": "Creativeman@gmail.com",
-        "phone": "(559) 123-4867"
+        "phone": "(559) 123-4867",
+        "editing": false
     },
     {
         "id": 3,
         "firstName": "Isaiah",
         "lastName": "Christy",
         "eamil": "memedaddy69@gmail.com",
-        "phone": "(559) 103-8867"
+        "phone": "(559) 103-8867",
+        "editing": false
     }
 ]
